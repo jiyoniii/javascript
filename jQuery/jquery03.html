@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- event --------------------------------------------------------->
+
+
+<!-- addClass 사용 예 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery03</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#box1").css("background", "green");
+                // $("#box1").html("박스1");
+            });
+
+            // addClass 사용하여 클래스 추가하는방법
+            $("#btn2").click(function () {
+                $("#box2").addClass("box2");
+            });
+
+            // removeClass를 사용해서 변경된 색상을 원래대로 돌리는 방법
+            $("#btn3").click(function () {
+                $("#box2").removeClass("box2");
+            });
+            // attr 사용
+            $("#btn4").click(function () {
+                $("img").attr("src", "img/android.png");
+            });
+            $("#btn5").click(function () {
+                $("#box1").addClass("on");
+            });
+            $("#btn6").on("click", function () {
+                $("#box3").addClass("box3");
+            });
+
+            // 강제로 이벤트 발생시키기
+            $(".btn1").click(function () {
+                $(".btn1").parent().next().css({ "color": "#f00" }); //chaining
+            })
+
+            $(".btn2").on({
+                "mouseover focus": function () {
+                    $(".btn2").parent().next()
+                        .css({ "color": "#0f0" });
+                }
+            });
+
+            $(".btn1").click(); //강제로 이벤트 발생하는 방법1
+            $(".btn2").trigger("mouseover"); //강제로 이벤트 발생하는 방법2
+
+        });
+
+        //mouse on/over 이벤트
+        //첫번재 방법. on을 이용한 이벤트
+        $(function () {
+            $(".btn3").on({
+                "mouseover": function () {
+                    $(".txt1")
+                        .css({ "background-color": "yellow" });
+                },
+                "mouseout": function () {
+                    $(".txt1")
+                        .css({ "background": "none" });
+                }
+            });
+            // 두번째 방법. hover를 이용한 이벤트
+            $(".btn4").hover(function () {
+                $(".txt2")
+                    .css({ "background-color": "aqua" });
+            }, function () {
+                $(".txt2")
+                    .css({ "background": "none" });
+            });
+        });
+
+        // keyboard 이벤트
+        $(function () {
+            $(document).on("keydown", KeyEventFnc);
+            function KeyEventFnc(e) {
+                var direct = "";
+
+                switch (e.keyCode) {
+                    case 37: direct = "LEFT";
+                        break;
+                    case 38: direct = "TOP";
+                        break;
+                    case 39: direct = "RIGHT";
+                        break;
+                    case 40: direct = "BOTTOM";
+                        break;
+                }
+                if (direct) $("#user_id").val(direct);
+            }
+        });
+
+        //a,form 이벤트 차단하고, 다른 이벤트를 주는 방법
+        $(function () {
+            $("#btn7").on("click", function (e) { //event객체라서 e라고 패러미터 적어줘야 함.
+                e.preventDefault(); //사용 시 다른페이지로의 이동을 막는다.
+                $("#txt").css("color", "red");
+            });
+        })
+
+        // scroll이벤트 & delegate(위임)이벤트 & one 이벤트
+
+        var count = 0;
+        $(window).on("scroll", function () {
+            console.log($(this).scrollTop());   //이벤트 처리할 때의 this는 이벤트가 발생한 객체(window)를 가리킴.
+
+
+            if ($(this).scrollTop() > 500) {    //scroll 위치가 500이 넘어가면 event가 발생.
+                $("#box3").addClass("bounceInLeft animated"); //animate 를 사용해 스크롤 내리면 왼쪽에서 오른쪽으로 나타나는 효과
+
+                if (count == 0) {
+                    $("#box4").append("<button id='btn8'>클릭8</button>");
+                }
+            }
+            count++;
+
+
+            //위임
+            //첫번째 방법 (on 사용)
+            // $("#box4").on("click", "#btn8", function () {
+            //     alert("btn8클릭됨");
+            // });
+
+            //두번째 방법(delegate 사용)
+            $("#box4").delegate("#btn8", "click", function () {
+                alert("btn8클릭됨");
+            });
+
+
+            //one을 사용하기
+            $(".btn9").one("click", function () {
+                console.log("버튼9가 클릭됨");
+            });
+        });
+    </script>
+
+    <!-- Animate.css에서 긁어온 link(scroll이벤트를 위해 사용) -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <style>
+        #box1 {
+            margin-top: 300px;
+            width: 300px;
+            height: 300px;
+            background: red;
+            position: relative;
+            transition: 1s;
+            left: 0;
+        }
+
+        #box1.on {
+            left: 50px;
+        }
+
+        #box2 {
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+
+        .box2 {
+            background: orange !important;
+        }
+
+        #box3 {
+            width: 300px;
+            height: 300px;
+            background: orange;
+            opacity: 1;
+
+        }
+
+        .box3 {
+            opacity: 0 !important;
+        }
+
+        #box4 {
+            width: 300px;
+            height: 300px;
+            background: blueviolet;
+        }
+
+        /* scroll event */
+        /* scroll 만들기 위해 임의로 height 10000px로 설정 */
+        body {
+            height: 10000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">box1</div>
+    <button type="button" id="btn1">클릭1</button>
+    <button type="button" id="btn5">클릭5</button>
+    <!-- button의 기본 타입은 submit이라서 타입을 button으로 변경해줘야 함. (submit은 정보는 전송하는 역활을 함) -->
+    <div id="box2">box2</div>
+    <button type="button" id="btn2">orange</button>
+    <button type="button" id="btn3">blue</button>
+    <div>
+        <img src="img/iphone.png" alt="">
+    </div>
+    <button type="button" id="btn4"> 클릭4</button>
+    <div id="box3">box3</div>
+    <button type="button" id="btn6"> 클릭6</button>
+
+    <!-- trigger이벤트 -->
+
+    <p>
+        <button class="btn1">버튼1</button>
+    </p>
+    <p>내용1</p>
+    <p>
+        <button class="btn2">버튼2</button>
+    </p>
+    <p style="font-size: 10px;">내용2</p>
+
+    <p class="info" style="opacity:1; font-size: 10px; margin-left: 50px; color: red;">dkkkkkkkkkkkkkkkkkkkkkkkkkk</p>
+    <!-- a, form의 기본이벤트 차단하고, 다른 이벤트 주는 방법 -->
+    <a href="http://www.naver.com" id="btn7">클릭7</a>
+    <div id="txt">text</div>
+
+    <!-- hover 이벤트 -->
+    <p><button class="btn3">mouse over/mouse out</button></p>
+    <p class="txt1">내용1</p>
+    <p><button class="btn4">hover</button></p>
+    <p class="txt2">내용2</p>
+
+    <!-- keyboard 이벤트 -->
+    <p><input type="text" name="user_id" id="user_id"></p>
+
+    <!-- delegate() 사용 이벤트 -->
+    <div id="box4">
+    </div>
+
+    <p><button class="btn9">버튼9</button></p>
+
+</body>
+
+</html>

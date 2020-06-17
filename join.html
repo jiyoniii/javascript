@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <script>
+        function check() {
+            if (document.form1.id.value == "") {
+                alert("id를 입력하세요");
+                // return false를 입력해야 등록버튼 누르고 다음화면으로 넘어가질 않음.
+                // return false --> 전송을 막는 역활.
+                return false;
+            }
+            if (document.form1.name.value.length == 0) {
+                alert("name을 입력하세요");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>회원가입</h3>
+    <!--form 작성방법.-->
+    <form name="form1" action="join.jsp" method="post" onsubmit="return check();">
+        id <input type="text" name="id"><br>
+        name <input type="text" name="name"><br>
+        pw <input type="text" name="pw"><br>
+        email <input type="text" name="email"><br>
+        <!-- radio버튼은 그룹핑을 name의 이름을 같이해서 그룹핑 함-->
+        email수신 <input type="radio" value="예" name="emailYN"> 예
+        <input type="radio" value="아니오" name="emailYN">아니오<br>
+        <!--checkbox 사용방법 (다중선택이 가능함)-->
+        취미 <input type="checkbox" value="운동" name="hobby1"> 운동
+        <input type="checkbox" value="독서" name="hobby2"> 독서
+        <input type="checkbox" value="등산" name="hobby3"> 등산
+        <input type="checkbox" value="낚시" name="hobby4"> 낚시<br>
+        <!--combobox 사용방법. value값이 서버로 전달되는 값임.-->
+        직업 <select name="job">
+            <option value="학생">학생</option>
+            <option value="직장인">직장인</option>
+            <option value="군인">군인</option>
+            <option value="기타">기타</option>
+        </select> <br>
+        <!--textarea 작성-->
+        자기소개<br>
+        <textarea name="introduce" cols="50" rows="10"></textarea><br>
+        <!--첨부파일 넣기 html로는 파일업로드 불가.jsp로 가능.-->
+        사진 <input type="file" name="picture"><br>
+        <!--submit버튼 생성-->
+        <input type="submit" value="등록" onsubmit="return check();">
+
+    </form>
+</body>
+
+</html>

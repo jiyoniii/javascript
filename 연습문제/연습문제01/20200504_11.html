@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    검색어를 입력하세요
+    <form action="" method="get">
+        <input type="text" id="search" name="search">
+        <input type="submit" value="검색">
+    </form>
+    <script>
+        // 11. 현재 시간을 구해서, 19시전에는 네이버로 이동하고, 19시 이후에는 구글로 이동하게 하시오.
+
+        // var today = new Date();
+        // var hour = today.getHours();
+        // document.write(hour);
+
+        // if (hour < 19) {
+        //     location.href = "http://www.naver.com";
+        // } if (hour >= 19) {
+        //     location.href = "http://www.google.com";
+        // }
+
+
+        var url = location.search;
+
+        // url.replace("?search", "&query");
+        // console.log(url)
+
+
+        // if (url) location.href = "https://book.naver.com/search/search.nhn?sm=sta_hty.book&sug=&where=nexearch" + url
+
+
+
+    </script>
+</body>
+
+</html>

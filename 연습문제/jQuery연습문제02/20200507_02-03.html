@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>2번문제</title>
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="/css/animate.css">
+    <script>
+        $(window).on("scroll", function () {
+            console.log($(this).scrollTop());   //이벤트 처리할 때의 this는 이벤트가 발생한 객체(window)를 가리킴.
+
+            if ($(this).scrollTop() > 90) {
+                $("#menuTop2").addClass("on");
+            }
+            if ($(this).scrollTop() < 90) {
+                $("#menuTop2").removeClass("on");
+            }
+            // 
+            if ($(this).scrollTop() > 378) {
+                $("#left").addClass("slideInLeft animated");
+                $("#right").addClass("slideInRight animated");
+            }
+
+        });
+    </script>
+    <style>
+        * {
+            height: 9000px;
+        }
+
+        #menuTop1 {
+            border-bottom: gray solid 1px;
+            height: 80px;
+        }
+
+        #menuTop2 {
+            height: 50px;
+            background-color: indianred;
+        }
+
+        #menuTop2.on {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            height: 50px;
+            background-color: indianred;
+        }
+
+        #left {
+            margin-top: 1000px;
+            width: 500px;
+            height: auto;
+        }
+
+        #right {
+            margin-top: 1000px;
+            width: 500px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menuTop1">facebook twitter google++</div>
+    <div id="menuTop2">product | contact | map </div>
+
+    <img src="/img/iphone.png" id="left" alt="">
+    <img src="/img/android.png" id="right" alt="">
+
+</body>
+
+</html>

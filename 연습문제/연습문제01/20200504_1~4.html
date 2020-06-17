@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var korean = prompt("국어점수를 입력하세요", "");
+        // var math = prompt("수학점수를 입력하세요", "");
+        // var english = prompt("영어점수를 입력하세요", "");
+
+        // var array = [korean, math, english];
+        // var sum = 0;
+
+        // for (var i = 0; i < array.length; i++) {
+        //     (Number(array[i]) + " ")
+        //     sum = sum + Number(array[i])
+        // }
+        // document.write("합계는 : " + sum);
+        // var avr = sum / array.length;
+        // document.write("평균은 : " + avr);
+
+
+
+        // 위의 내용을 함수로 처리하기.
+
+        function score() {
+            var korean = prompt("국어점수를 입력하세요", "");
+            var math = prompt("수학점수를 입력하세요", "");
+            var english = prompt("영어점수를 입력하세요", "");
+
+            var array = [korean, math, english];
+            var sum = 0;
+
+            for (var i = 0; i < array.length; i++) {
+                (Number(array[i]) + " ")
+                sum = sum + Number(array[i])
+            }
+            document.write("합계는 : " + sum);
+            var avr = sum / array.length;
+            document.write("평균은 : " + avr);
+        }
+
+        score();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

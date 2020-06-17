@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript newsyntax</title>
+</head>
+<script>
+    // 배열의 전개연산자, 구조분해할당 사용방법
+    // react에서는 원형을 유지하고 복사하여 사용해야 하기 때문에 
+    // 전개연산자, 구조분해할당을 많이 사용하는 편임.
+
+    // "..."전개연산자 사용방법 
+    let arr = [1, 2, 3, 4, 5];
+    let arrCopy = [...arr];
+    console.log('arrCopy' + arrCopy);
+
+    // 구조분해할당(or 비구조화 할당) 사용방법
+    [a, b, c, d, e] = [...arr]
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(e);
+
+    // 객체의 전개연산자, 구조분해할당 사용방법
+    let obj = { name: '홍길동', address: '서울' };
+    let objcopy = { ...obj };
+    console.log('objcopy 는 ' + objcopy);
+
+    // 구조분해할당
+    let { name, address } = { ...obj };
+    console.log(name);
+    console.log(address);
+
+    // "=>" 람다식 사용
+    const func1 = (name) => { console.log(name) };
+    // 상수 func1은 name을 가리키는 함수가 됨.
+    func1('홍길동');
+
+    // 자동호출함수 --> 익명함수의 이름을 짓지 않고 바로 호출하는 방법 
+    (function () {
+        console.log('이순신');
+    })(); // () <-- 얘를 이렇게 호출하게 됨. "이순신" 출력됨
+
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>

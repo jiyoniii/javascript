@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 1.버튼을 누르면 웹페이지 배경색이 녹색이 되도록 변경하시오. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.js"></script>
+    <title>Document</title>
+    <script>
+        $(function () {
+            // $("table tr:odd").css({ "background-color": "orange" })
+            $("button").click(function () {
+                $("table tr").eq(0).css({ "background-color": "black", "color": "white" })
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <button id="btn1">BUTTON</button>
+    <table border="1" width="50%">
+        <tr>
+            <td>이름</td>
+            <td>주소</td>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>서울시</td>
+        </tr>
+        <tr>
+            <td>이순신</td>
+            <td>제주시</td>
+        </tr>
+        <tr>
+            <td>왕건</td>
+            <td>경기도</td>
+        </tr>
+    </table>
+</body>
+
+</html>

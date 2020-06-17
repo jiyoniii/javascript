@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00</title>
+    <script>
+        // 1. 학생 객체를 생성하고 평균학점을 구하시오.
+        // 학생{이름,국어,영어,수학,학점()}
+        // 홍길동:A학점
+
+        function Student(name, korean, english, math) {
+            this.name = name;
+            this.korean = korean;
+            this.english = english;
+            this.math = math;
+            this.score = function () {
+                var jumsu = (this.korean + this.english + this.math) / 3;
+                console.log(name + "의 평균점수는 " + jumsu);
+            };
+        };
+
+        var hkd = new Student("홍길동", 10, 20, 30);
+        hkd.score();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // pop1의 위치에 아무것도 지정하지 않으면 팝업이 새창에서 계속 뜨게 됨.
+    var win1 = window.open("winpopup.html", "pop1", "width=500 height=400");
+    var x = screen.width / 2 - 500 / 2;
+    var y = screen.height / 2 - 400 / 2;
+
+    // 창 띄우는 위치를 설정할 수 있다.
+    win1.moveTo(x, y);
+
+    // 사이즈 조절은 resizeTo 사용
+    // win1.resizeTo(700, 200);
+
+</script>
+
+<body>
+
+</body>
+
+</html>

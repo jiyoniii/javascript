@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 1.버튼을 누르면 웹페이지 배경색이 녹색이 되도록 변경하시오. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.js"></script>
+    <title>Document</title>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $("#btn1").parent().css({ "backgroundColor": "green" });
+            });
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <button id="btn1">BUTTON</button>
+</body>
+
+</html>

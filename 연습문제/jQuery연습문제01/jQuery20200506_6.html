@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.js"></script>
+    <title>Document</title>
+    <script>
+        $(function () {
+            $("#box1").click(function () {
+                $("#sub1").toggle();
+            });
+            $("#box2").click(function () {
+                $("#sub2").toggle();
+            });
+        });
+    </script>
+
+    <style>
+        .box {
+
+            width: 150px;
+            height: 60px;
+            border: solid 1px grey
+        }
+
+        .sub {
+            width: 150px;
+            height: 30px;
+            top: 69px;
+            background-color: indianred;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="box1" class="box">Section1</div>
+        <div id="sub1" class="sub">내용내용내용</div>
+
+        <div id="box2" class="box">Section2</div>
+        <div id="sub2" class="sub">내용내용내용</div>
+
+
+    </div>
+
+</body>
+
+</html>

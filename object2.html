@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+    <script>
+        var hkd = { name: "홍길동", age: 10, address: "서울시" };
+        console.log(hkd.name);
+        console.log(hkd.age);
+        console.log(hkd.address);
+
+        var lss = { name: "이순신", score: [4.5, 4.1, 2.2, 3.5] };
+        console.log(lss.name);
+        for (var i = 0; i < lss.score.length; i++) {
+            console.log(lss.score[i]);
+        }
+
+        var data = ["왕건", 20, { y1: 4.1, y2: 3.4, y3: 4.0, y4: 3.2 }];
+        console.log(data[0]);
+        console.log(data[1]);
+        // 객체 안의 배열을 출력할 때는 아래의 방식처럼 사용할 수 있다.
+        console.log(data[2].y1);
+        console.log(data[2].y2);
+        console.log(data[2].y3);
+        console.log(data[2].y4);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 1.버튼을 누르면 웹페이지 배경색이 녹색이 되도록 변경하시오. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/jquery.js"></script>
+    <title>Document</title>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $("img").css({ "boxShadow": "grey 5px 5px" })
+            });
+            $("#btn2").click(function () {
+                $("img").addClass("on");
+            });
+        });
+
+    </script>
+
+    <style>
+        img {
+            position: relative;
+            transition: 1s;
+            left: 0;
+        }
+
+        img.on {
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">BUTTON</button>
+    <button id="btn2">BUTTON2</button><br>
+    <img src="/img/pic1.jpg" width="300px" height="auto">
+
+</body>
+
+</html>

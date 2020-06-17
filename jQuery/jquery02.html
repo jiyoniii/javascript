@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        // $(function () { });
+        // 아래 내용을 약식으로 하면 위와 같음.
+        $(document).ready(function () {
+            // tag를 찾아서 컬러 지정하는 방법은 다양함
+            // $("div p").css("color", "red");
+            // $("div>p").css("color", "red");
+
+            // find  사용방법
+            // $("div").find("p").css("color", "red");
+
+            //closest 사용방법
+            $("p").closest("div").css("color", "blue");
+
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <p>jQuery</p>
+    </div>
+
+    <p>jQuery</p>
+
+    <div>
+        <p>jQuery</p>
+    </div>
+</body>
+
+</html>

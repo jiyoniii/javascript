@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function func1() {
+            //document.write("hello" + "<br>");
+            console.log("hello");
+        }
+        var si1 = setInterval(func1, 2000);
+
+        var si2 = setInterval(function () {
+            //document.write("world" + "<br>")
+            console.log("world");
+        }, 2000);
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="clearInterval(si1)">
+        1번 stop
+    </button>
+    <button type="button" onclick="clearInterval(si2)">
+        2번 stop
+    </button>
+</body>
+
+</html>
